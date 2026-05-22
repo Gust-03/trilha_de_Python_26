@@ -1,0 +1,35 @@
+print("bem vindo desafiante ao combate de criaturas")
+
+print("primeira criatura")
+monstro1 = input("insira o nome da sua criatura")
+HP1 = int(input("insira o valor de vida da criatura"))
+atk1 = int(input("insira o valor do dano da criatura"))
+
+print("segunda criatura")
+monstro2 = input("insira o nome da sua criatura")
+HP2 = int(input("insira o valor de vida da criatura"))
+atk2 = int(input("insira o valor do dano da criatura"))
+
+def atacar(nome_atacante, ataque, nome_defensor, hp_defensor):
+    print(nome_atacante, "atacou", nome_defensor, "causando",ataque,"de dano")
+    return hp_defensor - ataque 
+    
+def exibir_placar(monstro1, hp1, monstro2, hp2):
+   
+   return str(f"{monstro1} {hp1}HP {monstro2} {hp2}HP")
+
+while HP1 > 0 and HP2 > 0:
+    HP2 = (atacar(monstro1, atk1, monstro2, HP2))
+    if HP2 < 0 : HP2 = HP2*0 
+    print(exibir_placar(monstro1, HP1, monstro2, HP2))
+    if HP2 == 0: 
+        print(f"{monstro2} desmaiou, {monstro1} vence o combate")
+        break   
+    
+    HP1 = (atacar(monstro2, atk2, monstro1, HP1))
+    if HP1 < 0: HP1 = HP1*0
+    print(exibir_placar(monstro1, HP1, monstro2, HP2))
+    if HP1 == 0:
+        print(f"{monstro1} desmaiou, {monstro2} vence o combate")
+        break    
+    else: continue
